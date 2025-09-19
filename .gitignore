@@ -1,0 +1,7 @@
+!gradle/wrapper/gradle-wrapper.jar
+.gradle
+.idea
+/.kotlin/
+/.wrangler/
+/node_modules/
+build/

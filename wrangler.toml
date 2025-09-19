@@ -1,0 +1,20 @@
+name = "container-kotlin-sample"
+main = "src/index.js"
+compatibility_date = "2025-09-14"
+
+[[containers]]
+class_name = "SampleContainer"
+image = "./Dockerfile"
+instance_type = "dev"
+max_instances = 1
+
+[[durable_objects.bindings]]
+class_name = "SampleContainer"
+name = "CONTAINER"
+
+[[migrations]]
+new_sqlite_classes = ["SampleContainer"]
+tag = "v1"
+
+[observability.logs]
+enabled = true
