@@ -1,5 +1,3 @@
-package com.example
-
 import io.ktor.http.HttpHeaders
 import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.Application
