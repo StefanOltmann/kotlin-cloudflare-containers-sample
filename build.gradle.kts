@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "2.2.20"
-    id("io.ktor.plugin") version "3.3.0"
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.ktor)
 }
 
 group = "com.example"
@@ -11,10 +11,9 @@ application {
 }
 
 dependencies {
-    implementation("io.ktor:ktor-server-core-jvm")
-    implementation("io.ktor:ktor-server-netty")
-    implementation("ch.qos.logback:logback-classic:1.4.14")
-    implementation("io.ktor:ktor-server-core")
-    testImplementation("io.ktor:ktor-server-test-host")
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:2.2.20")
+    implementation(libs.ktor.server.core.jvm)
+    implementation(libs.ktor.server.netty)
+    implementation(libs.ktor.server.core)
+    testImplementation(libs.ktor.server.test.host)
+    testImplementation(libs.kotlin.test.junit)
 }
