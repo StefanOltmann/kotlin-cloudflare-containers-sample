@@ -11,9 +11,15 @@ application {
 }
 
 dependencies {
-    implementation(libs.ktor.server.core.jvm)
-    implementation(libs.ktor.server.netty)
-    implementation(libs.ktor.server.core)
+
+    /*
+     * Ktor server
+     */
+    implementation(libs.bundles.ktor.server)
+
+    /*
+     * Unit Tests
+     */
     testImplementation(libs.ktor.server.test.host)
     testImplementation(libs.kotlin.test.junit)
 }

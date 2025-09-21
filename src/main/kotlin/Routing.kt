@@ -1,17 +1,39 @@
 package com.example
 
+import io.ktor.http.HttpHeaders
+import io.ktor.http.HttpMethod
+import io.ktor.serialization.kotlinx.json.json
 import io.ktor.server.application.Application
 import io.ktor.server.application.ApplicationCall
+import io.ktor.server.application.install
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.plugins.cors.routing.CORS
 import io.ktor.server.plugins.origin
 import io.ktor.server.response.respondText
 import io.ktor.server.routing.get
 import io.ktor.server.routing.routing
+import kotlinx.serialization.json.Json
 
 fun Application.configureRouting() {
+
+    install(ContentNegotiation) {
+        json(Json)
+    }
+
+    install(CORS) {
+
+        anyMethod()
+
+        allowHeader(HttpHeaders.AccessControlAllowOrigin)
+        allowHeader(HttpHeaders.ContentType)
+
+        anyHost()
+    }
 
     routing {
 
         get("/") {
+
             call.respondText("Hello Kotlin!")
         }
 
